@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import "./index.css";
 import App from "./App.tsx";
 
 const client = new ApolloClient({
-  uri: "https://spacex-production.up.railway.app/",
+  link: new HttpLink({ uri: "https://spacex-production.up.railway.app/" }),
   cache: new InMemoryCache(),
 });
 
